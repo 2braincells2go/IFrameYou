@@ -108,40 +108,6 @@ class IFrameYou
 	}
 	
 	/**
-	 * Returns the iframe formated to youtube player
-	 */
-	private function _frameYoutube()
-	{
-		$src		= "http://www.youtube.com/embed/" . $this -> _urlInfo['query']['v'];
-		$src		= $this -> _addParams( $src, self::DOMAIN_YOUTUBE );
-		$properties	= $this -> _getProperties( self::DOMAIN_YOUTUBE );
-		
-		return $this -> _iFrameTemplate( $src , $properties );
-	}
-	
-	/**
-	 * Returns the iframe formated to vimeo player
-	 */
-	private function _frameVimeo()
-	{
-		$src		= "http://player.vimeo.com/video/" . reset( $this -> _urlInfo['path'] );
-		$src		= $this -> _addParams( $src, self::DOMAIN_VIMEO );
-		$properties	= $this -> _getProperties( self::DOMAIN_VIMEO );
-		
-		return $this -> _iFrameTemplate( $src , $properties );
-	}
-	
-	/**
-	 * Returns the iframe html
-	 */
-	private function _frameOther()
-	{
-		$properties	= $this -> _getProperties( self::DOMAIN_OTHER );
-		
-		return $this -> _iFrameTemplate( $this -> _url , $properties );
-	}
-	
-	/**
 	 * Builds the html tag for the iframe element
 	 */
 	private function _iFrameTemplate( $src, array $properties = array() )
@@ -191,4 +157,88 @@ class IFrameYou
 				'allowfullscreen',
 			);
 	}
+	
+	
+	/**
+	 * Returns the iframe formated to youtube player
+	 */
+	private function _frameYoutube()
+	{
+		$src		= "http://www.youtube.com/embed/" . $this -> _urlInfo['query']['v'];
+		$src		= $this -> _addParams( $src, self::DOMAIN_YOUTUBE );
+		$properties	= $this -> _getProperties( self::DOMAIN_YOUTUBE );
+		
+		return $this -> _iFrameTemplate( $src , $properties );
+	}
+	
+	/**
+	 * Returns the iframe formated to vimeo player
+	 */
+	private function _frameVimeo()
+	{
+		$src		= "http://player.vimeo.com/video/" . reset( $this -> _urlInfo['path'] );
+		$src		= $this -> _addParams( $src, self::DOMAIN_VIMEO );
+		$properties	= $this -> _getProperties( self::DOMAIN_VIMEO );
+		
+		return $this -> _iFrameTemplate( $src , $properties );
+	}
+	
+	/**
+	 * Returns the iframe formated to dailymotion player
+	 */
+	private function _frameDailymotion()
+	{
+		/**
+		 * @todo add dailymotion player
+		 * 		api -> http://www.dailymotion.com/pt/doc/api/player/player_parameters
+		 * 		example -> http://www.dailymotion.com/embed/video/xzz28x?start=10
+		 */
+		
+		$src = "http://www.dailymotion.com/embed/video/xzz28x?start=10";
+		
+	}
+	
+	/**
+	 * Returns the iframe formated to TED player
+	 */
+	private function _frameTed()
+	{
+		/**
+		 * <iframe src="http://embed.ted.com/talks/daniel_h_cohen_for_argument_s_sake.html" width="560" height="315" frameborder="0" scrolling="no" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+		 *
+		 */
+	}
+	
+	/**
+	 * Returns the iframe formated to TED player
+	 */
+	private function _frameBreak()
+	{
+		/**
+		 * http://www.break.com/
+		 *
+		 */
+	}
+	
+	/**
+	 * Returns the iframe formated to TED player
+	 */
+	private function _frameLiveleak()
+	{
+		/**
+		 * http://www.liveleak.com/view?i=2d5_1375546520
+		 *
+		 */
+	}
+	
+	/**
+	 * Returns the iframe html
+	 */
+	private function _frameOther()
+	{
+		$properties	= $this -> _getProperties( self::DOMAIN_OTHER );
+		
+		return $this -> _iFrameTemplate( $this -> _url , $properties );
+	}
+	
 }
