@@ -158,7 +158,6 @@ class IFrameYou
 			);
 	}
 	
-	
 	/**
 	 * Returns the iframe formated to youtube player
 	 */
