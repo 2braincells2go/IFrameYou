@@ -16,6 +16,7 @@ class IFrameYou
 	const DOMAIN_YOUTUBE	= 'youtube';
 	const DOMAIN_VIMEO		= 'vimeo';
 	const DOMAIN_DAILYMOTION= 'dailymotion';
+	const DOMAIN_TED		= 'ted';
 	const DOMAIN_OTHER		= 'other';
 	
 	/**
@@ -91,6 +92,10 @@ class IFrameYou
 				return $this -> _frameDailymotion();
 			break;
 			
+			case self::DOMAIN_TED :
+				return $this -> _frameTed();
+			break;
+			
 			case self::DOMAIN_OTHER :
 			default:
 				return $this -> _frameOther();
@@ -110,6 +115,8 @@ class IFrameYou
 			return self::DOMAIN_VIMEO;
 		elseif ( strpos( $this -> _urlInfo['host'], self::DOMAIN_DAILYMOTION ) !== false )
 			return self::DOMAIN_DAILYMOTION;
+		elseif ( strpos( $this -> _urlInfo['host'], self::DOMAIN_TED ) !== false )
+			return self::DOMAIN_TED;
 		else
 			return self::DOMAIN_OTHER;
 	}
@@ -205,8 +212,12 @@ class IFrameYou
 	{
 		/**
 		 * <iframe src="http://embed.ted.com/talks/daniel_h_cohen_for_argument_s_sake.html" width="560" height="315" frameborder="0" scrolling="no" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-		 *
+		 * http://www.ted.com/talks/eli_beer_the_fastest_ambulance_a_motorcycle.html
 		 */
+
+		$src = "http://embed.ted.com/" . implode( $this -> _urlInfo['path'], '/' );
+		
+		return $this -> _iFrameTemplate( $src );
 	}
 	
 	/**

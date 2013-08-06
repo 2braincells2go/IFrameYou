@@ -218,6 +218,22 @@ $config = array(
 			'frameborder'	=> 0,
 		),
 	),
+	/**
+	 * Ted player configurations	
+	 */
+	'ted' 	=> array(
+		'parameters'	=> array(
+		),
+		'properties'	=> array(
+			'height'		=> 315,
+			'width'			=> 560,
+			'frameborder'	=> 0,
+			'scrolling'		=> 'no',
+			'allowfullscreen',
+			'webkitAllowFullScreen',
+			'mozallowfullscreen',
+		),
+	),
 	'other' 	=> array(
 		'height'		=> 315,
 		'width'			=> 560,
