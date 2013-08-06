@@ -114,15 +114,15 @@ class IFrameYou
 	 */
 	private function _getDomain()
 	{
-		if ( strpos( $this -> _urlInfo['host'], self::DOMAIN_YOUTUBE ) !== false )
+		if ( strpos( 	$this -> _urlInfo['host'],	self::DOMAIN_YOUTUBE ) 		!== false )
 			return self::DOMAIN_YOUTUBE;
-		elseif ( strpos( $this -> _urlInfo['host'], self::DOMAIN_VIMEO ) !== false )
+		elseif ( strpos( $this -> _urlInfo['host'], self::DOMAIN_VIMEO ) 		!== false )
 			return self::DOMAIN_VIMEO;
-		elseif ( strpos( $this -> _urlInfo['host'], self::DOMAIN_DAILYMOTION ) !== false )
+		elseif ( strpos( $this -> _urlInfo['host'], self::DOMAIN_DAILYMOTION ) 	!== false )
 			return self::DOMAIN_DAILYMOTION;
-		elseif ( strpos( $this -> _urlInfo['host'], self::DOMAIN_TED ) !== false )
+		elseif ( strpos( $this -> _urlInfo['host'], self::DOMAIN_TED ) 			!== false )
 			return self::DOMAIN_TED;
-		elseif ( strpos( $this -> _urlInfo['host'], self::DOMAIN_BREAK ) !== false )
+		elseif ( strpos( $this -> _urlInfo['host'], self::DOMAIN_BREAK ) 		!== false )
 			return self::DOMAIN_BREAK;
 		else
 			return self::DOMAIN_OTHER;
@@ -231,17 +231,6 @@ class IFrameYou
 		$src 	= "http://www.break.com/embed/" . end( $id );
 		
 		return $this -> _iFrameTemplate( $src );
-	}
-	
-	/**
-	 * Returns the iframe formated to TED player
-	 */
-	private function _frameLiveleak()
-	{
-		/**
-		 * http://www.liveleak.com/view?i=2d5_1375546520
-		 *
-		 */
 	}
 	
 	/**
