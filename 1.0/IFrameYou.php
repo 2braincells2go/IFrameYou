@@ -117,10 +117,13 @@ class IFrameYou
 	/**
 	 * Builds the html tag for the iframe element
 	 */
-	private function _iFrameTemplate( $src, array $properties = array() )
+	private function _iFrameTemplate( $src )
 	{
-		$template = '<iframe src="%s" %s ></iframe>';
-		
+		$template	= '<iframe src="%s" %s ></iframe>';
+		$domain 	= $this -> _getDomain();
+		$src		= $this -> _addParams( $src, $domain );
+		$properties = $this -> _getProperties( $domain );
+
 		$tmp = array();
 		foreach ( $properties as $property => $value )
 			if ( is_string( $property ) )
@@ -161,7 +164,6 @@ class IFrameYou
 				'height'		=> 315,
 				'width'			=> 560,
 				'frameborder'	=> 0,
-				'allowfullscreen',
 			);
 	}
 	
@@ -171,10 +173,8 @@ class IFrameYou
 	private function _frameYoutube()
 	{
 		$src		= "http://www.youtube.com/embed/" . $this -> _urlInfo['query']['v'];
-		$src		= $this -> _addParams( $src, self::DOMAIN_YOUTUBE );
-		$properties	= $this -> _getProperties( self::DOMAIN_YOUTUBE );
 		
-		return $this -> _iFrameTemplate( $src , $properties );
+		return $this -> _iFrameTemplate( $src );
 	}
 	
 	/**
@@ -183,10 +183,8 @@ class IFrameYou
 	private function _frameVimeo()
 	{
 		$src		= "http://player.vimeo.com/video/" . reset( $this -> _urlInfo['path'] );
-		$src		= $this -> _addParams( $src, self::DOMAIN_VIMEO );
-		$properties	= $this -> _getProperties( self::DOMAIN_VIMEO );
-		
-		return $this -> _iFrameTemplate( $src , $properties );
+
+		return $this -> _iFrameTemplate( $src );
 	}
 	
 	/**
@@ -196,10 +194,8 @@ class IFrameYou
 	{
 		$id 		= explode( '_', $this -> _urlInfo['path'][1] );
 		$src 		= "http://www.dailymotion.com/embed/video/" . reset( $id );
-		$src		= $this -> _addParams( $src, self::DOMAIN_DAILYMOTION );
-		$properties	= $this -> _getProperties( self::DOMAIN_DAILYMOTION );
 		
-		return $this -> _iFrameTemplate( $src , $properties );
+		return $this -> _iFrameTemplate( $src );
 	}
 	
 	/**
