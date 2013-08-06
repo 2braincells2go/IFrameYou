@@ -15,6 +15,7 @@ class IFrameYou
 	
 	const DOMAIN_YOUTUBE	= 'youtube';
 	const DOMAIN_VIMEO		= 'vimeo';
+	const DOMAIN_DAILYMOTION= 'dailymotion';
 	const DOMAIN_OTHER		= 'other';
 	
 	/**
@@ -86,6 +87,10 @@ class IFrameYou
 				return $this -> _frameVimeo();
 			break;
 			
+			case self::DOMAIN_DAILYMOTION :
+				return $this -> _frameDailymotion();
+			break;
+			
 			case self::DOMAIN_OTHER :
 			default:
 				return $this -> _frameOther();
@@ -103,6 +108,8 @@ class IFrameYou
 			return self::DOMAIN_YOUTUBE;
 		elseif ( strpos( $this -> _urlInfo['host'], self::DOMAIN_VIMEO ) !== false )
 			return self::DOMAIN_VIMEO;
+		elseif ( strpos( $this -> _urlInfo['host'], self::DOMAIN_DAILYMOTION ) !== false )
+			return self::DOMAIN_DAILYMOTION;
 		else
 			return self::DOMAIN_OTHER;
 	}
@@ -187,14 +194,12 @@ class IFrameYou
 	 */
 	private function _frameDailymotion()
 	{
-		/**
-		 * @todo add dailymotion player
-		 * 		api -> http://www.dailymotion.com/pt/doc/api/player/player_parameters
-		 * 		example -> http://www.dailymotion.com/embed/video/xzz28x?start=10
-		 */
+		$id 		= explode( '_', $this -> _urlInfo['path'][1] );
+		$src 		= "http://www.dailymotion.com/embed/video/" . reset( $id );
+		$src		= $this -> _addParams( $src, self::DOMAIN_DAILYMOTION );
+		$properties	= $this -> _getProperties( self::DOMAIN_DAILYMOTION );
 		
-		$src = "http://www.dailymotion.com/embed/video/xzz28x?start=10";
-		
+		return $this -> _iFrameTemplate( $src , $properties );
 	}
 	
 	/**

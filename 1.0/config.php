@@ -137,6 +137,87 @@ $config = array(
 			'mozallowfullscreen',
 		),
 	),
+	/**
+	 * Dailymotion player configurations
+	 * @link http://www.dailymotion.com/pt/doc/api/player/player_parameters
+	 */
+	'dailymotion'	=> array(
+		'parameters'	=> array(
+			/**
+			 * Enable the Javascript API by setting this parameter to 1. For more information and instructions on using the Javascript API.
+			 */
+			'enableApi'		=> 0,
+			/**
+			 * This value may be any alphanumeric string; it is used in conjunction with the JavaScript API.
+			 */
+			'playerapiid'	=> '',
+			/**
+			 * Determines if the player loads related videos when the current video begins playback.
+			 */
+			'related'		=> 0,
+			/**
+			 * Determines if the player allows explicit content to be played.
+			 */
+			'explicit'		=> 1,
+			/**
+			 * Determines if the video will begin playing automatically when the player loads.
+			 */
+			'autoPlay'		=> 0,
+			/**
+			 * Determines if the video will begin muted.
+			 */
+			'autoMute'		=> 0,
+			/**
+			 * Determines if the video will unmuted on mouse over. Of course it works only if the player is on automute=1.
+			 */
+			'unmuteOnMouseOver'	=> 0,
+			/**
+			 * Determines if the video will begin playing the video at a given time.
+			 */
+			'start'			=> 0,
+			/**
+			 * Determines if the player should display controls or not during video playback.
+			 */
+			'chromeless'	=> 0,
+			/**
+			 * Determines if the video should be expanded to fit the whole player's size.
+			 */
+			'expandVideo'	=> 0,
+			/**
+			 * Values: sd, hq, hd720 or hd1080. Determines the quality that must be played by default if available.
+			 */
+			'forcedQuality'	=> '',
+			/**
+			 * Determines if a preview of the video should be displayed above the seeker on mouse roll over.
+			 */
+			'allowTimePreview'	=> 1,
+			/**
+			 * Determines if the video's information should be displayed on the start screen.
+			 */
+			'hideInfos'			=> 0,
+			/**
+			 * Value: subtitle's language (fr, en, es, ...). Specify which subtitle should be loaded by default.
+			 */
+			'defaultSubtitle'	=> '',
+			/**
+			 * Specify if a loader should be displayed during loading times.
+			 */
+			'withLoading'		=> 0,
+			/**
+			 * Determines if related videos should be loaded in the current player instead of redirecting toward dailymotion's website.
+			 */
+			'loadRelatedInPlace'=> 0,
+			/**
+			 * Determines if a double click on the video should target the fullscreen mode or not.
+			 */
+			'fullscreenOnDoubleClick'	=> 1,
+		),
+		'properties'	=> array(
+			'height'		=> 315,
+			'width'			=> 560,
+			'frameborder'	=> 0,
+		),
+	),
 	'other' 	=> array(
 		'height'		=> 315,
 		'width'			=> 560,
