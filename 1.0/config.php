@@ -221,7 +221,7 @@ $config = array(
 	/**
 	 * Ted player configurations	
 	 */
-	'ted' 	=> array(
+	'ted'	=> array(
 		'parameters'	=> array(
 		),
 		'properties'	=> array(
@@ -232,6 +232,22 @@ $config = array(
 			'allowfullscreen',
 			'webkitAllowFullScreen',
 			'mozallowfullscreen',
+		),
+	),
+	/**
+	 * Break player configurations	
+	 */
+	'break'	=> array(
+		'parameters'	=> array(
+		),
+		'properties'	=> array(
+			'height'		=> 315,
+			'width'			=> 560,
+			'frameborder'	=> 0,
+			'marginheight'	=> 0,
+			'marginwidth'	=> 0,
+			'scrolling'		=> 'no',
+			'allowfullscreen',
 		),
 	),
 	'other' 	=> array(
