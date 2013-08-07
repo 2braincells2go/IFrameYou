@@ -22,6 +22,7 @@ Once you create the object you just need to output it to display the iframe html
 - Ted
 - Break
 - GameSpot
+- Twitch
 
 You can also include regular webpages on iframes with ```IFrameYou```, if you want to set some costum configurations, use the key ```other``` for that.
 

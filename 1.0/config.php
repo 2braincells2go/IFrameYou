@@ -261,8 +261,22 @@ $config = array(
 			'vidSize'		=> 480
 		),
 		'properties'	=> array(
-			'height'		=> 270,
-			'width'			=> 480,
+			'height'		=> 315,
+			'width'			=> 560,
+			'frameborder'	=> 0,
+			'allowfullscreen',
+			'allowfullscreen',
+			'webkitAllowFullScreen',
+			'mozallowfullscreen',
+		),
+	),
+	/**
+	 * Twitch player configurations	
+	 */
+	'twitch'	=> array(
+		'properties'	=> array(
+			'height'		=> 315,
+			'width'			=> 560,
 			'frameborder'	=> 0,
 			'allowfullscreen',
 			'allowfullscreen',

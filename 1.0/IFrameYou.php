@@ -19,6 +19,7 @@ class IFrameYou
 	const DOMAIN_TED		= 'ted';
 	const DOMAIN_BREAK		= 'break';
 	const DOMAIN_GAMESPOT	= 'gamespot';
+	const DOMAIN_TWITCH		= 'twitch';
 	const DOMAIN_OTHER		= 'other';
 	
 	/**
@@ -106,6 +107,10 @@ class IFrameYou
 				return $this -> _frameGamespot();
 			break;
 			
+			case self::DOMAIN_TWITCH :
+				return $this -> _frameTwitch();
+			break;
+			
 			case self::DOMAIN_OTHER :
 			default:
 				return $this -> _frameOther();
@@ -131,6 +136,8 @@ class IFrameYou
 			return self::DOMAIN_BREAK;
 		elseif ( strpos( $this -> _urlInfo['host'], self::DOMAIN_GAMESPOT ) 	!== false )
 			return self::DOMAIN_GAMESPOT;
+		elseif ( strpos( $this -> _urlInfo['host'], self::DOMAIN_TWITCH ) 		!== false )
+			return self::DOMAIN_TWITCH;
 		else
 			return self::DOMAIN_OTHER;
 	}
@@ -239,11 +246,24 @@ class IFrameYou
 		
 		return $this -> _iFrameTemplate( $src );
 	}
-	
+
+	/**
+	 * Returns the iframe formated to GameSpot player
+	 */
 	private function _frameGamespot()
 	{
 		$id 	= explode( '-', end( $this -> _urlInfo['path'] ) );
 		$src 	= "http://www.gamespot.com/videoembed/" . end( $id );
+		
+		return $this -> _iFrameTemplate( $src );
+	}
+
+	/**
+	 * Returns the iframe formated to Twitch tv player
+	 */
+	private function _frameTwitch()
+	{
+		$src 	= "http://www.twitch.tv/widgets/live_embed_player.swf?channel=" . reset( $this -> _urlInfo['path'] );
 		
 		return $this -> _iFrameTemplate( $src );
 	}
