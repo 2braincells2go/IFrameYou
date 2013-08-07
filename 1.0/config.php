@@ -250,6 +250,26 @@ $config = array(
 			'allowfullscreen',
 		),
 	),
+	/**
+	 * GameSpot player configurations	
+	 */
+	'gamespot'	=> array(
+		'parameters'	=> array(
+			'mapp'			=> 'false',
+			'ads'			=> 0,
+			'onsite'		=> 0,
+			'vidSize'		=> 480
+		),
+		'properties'	=> array(
+			'height'		=> 270,
+			'width'			=> 480,
+			'frameborder'	=> 0,
+			'allowfullscreen',
+			'allowfullscreen',
+			'webkitAllowFullScreen',
+			'mozallowfullscreen',
+		),
+	),
 	'other' 	=> array(
 		'height'		=> 315,
 		'width'			=> 560,

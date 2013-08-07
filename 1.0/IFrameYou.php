@@ -18,6 +18,7 @@ class IFrameYou
 	const DOMAIN_DAILYMOTION= 'dailymotion';
 	const DOMAIN_TED		= 'ted';
 	const DOMAIN_BREAK		= 'break';
+	const DOMAIN_GAMESPOT	= 'gamespot';
 	const DOMAIN_OTHER		= 'other';
 	
 	/**
@@ -101,6 +102,10 @@ class IFrameYou
 				return $this -> _frameBreak();
 			break;
 			
+			case self::DOMAIN_GAMESPOT :
+				return $this -> _frameGamespot();
+			break;
+			
 			case self::DOMAIN_OTHER :
 			default:
 				return $this -> _frameOther();
@@ -124,6 +129,8 @@ class IFrameYou
 			return self::DOMAIN_TED;
 		elseif ( strpos( $this -> _urlInfo['host'], self::DOMAIN_BREAK ) 		!== false )
 			return self::DOMAIN_BREAK;
+		elseif ( strpos( $this -> _urlInfo['host'], self::DOMAIN_GAMESPOT ) 	!== false )
+			return self::DOMAIN_GAMESPOT;
 		else
 			return self::DOMAIN_OTHER;
 	}
@@ -233,6 +240,14 @@ class IFrameYou
 		return $this -> _iFrameTemplate( $src );
 	}
 	
+	private function _frameGamespot()
+	{
+		$id 	= explode( '-', end( $this -> _urlInfo['path'] ) );
+		$src 	= "http://www.gamespot.com/videoembed/" . end( $id );
+		
+		return $this -> _iFrameTemplate( $src );
+	}
+
 	/**
 	 * Returns the iframe html
 	 */
