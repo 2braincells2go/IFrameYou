@@ -1,8 +1,6 @@
-IFrameYou
+IFrameYou <a href="https://www.gittip.com/ReiDuKuduro/" target="__blank" alt="ReiDuKuduro @gittip" ><img alt="ReiDuKuduro @gittip" src="http://bottlepy.org/docs/dev/_static/Gittip.png" /></a>
 =========
 
-.. image:: http://bottlepy.org/docs/dev/_static/Gittip.png
-        :target: https://www.gittip.com/ReiDuKuduro/
 
 Simple class that generates the frames html...
 
