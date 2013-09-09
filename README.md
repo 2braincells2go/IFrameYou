@@ -1,5 +1,6 @@
-IFrameYou <script data-gittip-username="ReiDuKuduro" data-gittip-widget="button" src="//gttp.co/v1.js"></script>
+IFrameYou
 =========
+<script data-gittip-username="ReiDuKuduro" data-gittip-widget="button" src="//gttp.co/v1.js"></script>
 
 Simple class that generates the frames html...
 
