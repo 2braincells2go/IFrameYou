@@ -7,7 +7,7 @@
  * @author	André Filipe <andre.r.flip@gmail.com>
  * @link	https://github.com/ReiDuKuduro/IFrameYou
  * @license	GPL v2
- * @version	1.0
+ * @version	1.1
  */
 
 $config = array(
@@ -274,6 +274,20 @@ $config = array(
 	 * Twitch player configurations	
 	 */
 	'twitch'	=> array(
+		'properties'	=> array(
+			'height'		=> 315,
+			'width'			=> 560,
+			'frameborder'	=> 0,
+			'allowfullscreen',
+			'allowfullscreen',
+			'webkitAllowFullScreen',
+			'mozallowfullscreen',
+		),
+	),
+	/**
+	 * Vine player configurations	
+	 */
+	'vine'	=> array(
 		'properties'	=> array(
 			'height'		=> 315,
 			'width'			=> 560,

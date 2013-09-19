@@ -10,4 +10,4 @@ echo new IFrameYou( "http://www.ted.com/talks/eli_beer_the_fastest_ambulance_a_m
 echo new IFrameYou( "http://www.break.com/video/the-drunkest-russian-fight-you-ll-see-today-2502499", 'config.php' );
 echo new IFrameYou( "http://www.gamespot.com/events/game-crib-tsm-snapdragon/gamecrib-season-2-tsm-episode-5-out-of-range-6412285/", 'config.php' );
 echo new IFrameYou( "http://www.twitch.tv/tsm_dyrus", 'config.php' );
-
+echo new IFrameYou( "https://vine.co/v/hmI1p39TaIi", 'config.php' );
