@@ -5,7 +5,8 @@
  * 
  * @package	IFrameYou
  * @author	André Filipe <andre.r.flip@gmail.com>
- * @link	https://github.com/ReiDuKuduro/IFrameYou
+ * @link	https://github.com/ReiDuKuduro/IFrameYou Github Repo
+ * @link	http://masnathan.users.phpclasses.org/package/8249-PHP-Generate-HTML-to-embed-video-players.html PHP Classes
  * @license	GPL v2
  * @version	1.0
  */
