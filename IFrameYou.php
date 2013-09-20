@@ -3,20 +3,12 @@
 /**
  * This class can help you with the iframes, can handle the youtube video player, vimeo, and basic iframes includes
  * 
-<<<<<<< HEAD
- * @package  IFrameYou
- * @author   André Filipe <andre.r.flip@gmail.com>
- * @link     https://github.com/ReiDuKuduro/IFrameYou
- * @license  GPL v2
- * @version  1.1
-=======
  * @package	IFrameYou
  * @author	André Filipe <andre.r.flip@gmail.com>
  * @link	https://github.com/ReiDuKuduro/IFrameYou Github Repo
  * @link	http://masnathan.users.phpclasses.org/package/8249-PHP-Generate-HTML-to-embed-video-players.html PHP Classes
  * @license	GPL v2
  * @version	1.0
->>>>>>> a25801f286dc22e6b5451d45880a4b84dad5ef97
  */
 
 class IFrameYou
