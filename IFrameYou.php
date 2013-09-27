@@ -8,7 +8,7 @@
  * @link	https://github.com/ReiDuKuduro/IFrameYou Github Repo
  * @link	http://masnathan.users.phpclasses.org/package/8249-PHP-Generate-HTML-to-embed-video-players.html PHP Classes
  * @license	GPL v2
- * @version	1.0
+ * @version	1.2
  */
 
 class IFrameYou
@@ -193,14 +193,19 @@ class IFrameYou
      */
     private function _getProperties( $domain )
     {
-        if ( isset( $this -> _configs[ $domain ]['properties'] ) )
-            return $this -> _configs[ $domain ]['properties'];
-        else
+        if (isset($this->_configs[$domain]['properties'])) {
+            return $this->_configs[$domain]['properties'];
+
+        } elseif ($domain == self::DOMAIN_OTHER && isset($this->_configs[$domain])) {
+            return $this->_configs[$domain];
+
+        } else {
             return array(
-                'height'        => 315,
-                'width'            => 560,
-                'frameborder'    => 0,
+                'height'      => 315,
+                'width'       => 560,
+                'frameborder' => 0,
             );
+        }
     }
     
     /**
@@ -292,9 +297,8 @@ class IFrameYou
      */
     private function _frameOther()
     {
-        $properties    = $this -> _getProperties( self::DOMAIN_OTHER );
-        
-        return $this -> _iFrameTemplate( $this -> _url , $properties );
+        $properties = $this->_getProperties(self::DOMAIN_OTHER);
+        return $this->_iFrameTemplate($this->_url, $properties);
     }
     
 }
