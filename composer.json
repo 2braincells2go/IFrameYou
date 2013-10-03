@@ -1,5 +1,5 @@
 {
-    "name": "masnathan/iframyou",
+    "name": "masnathan/iframeyou",
     "type": "library",
     "description": "Simple class that generates the iframes html.",
     "keywords": ["html","iframe","video","player","youtube","vimeo","dailymotion","ted","break","gamespot","twitch","vine"],
