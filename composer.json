@@ -4,18 +4,19 @@
     "description": "Simple class that generates the iframes html.",
     "keywords": ["html","iframe","video","player","youtube","vimeo","dailymotion","ted","break","gamespot","twitch","vine"],
     "homepage": "https://github.com/ReiDuKuduro/IFrameYou",
-    "license": "GPL v2",
+    "license": "MIT",
     "authors": [
         {
             "name": "André Filipe",
-            "email": "andre.r.flip@gmail.com",
-            "role": "Developer"
+            "email": "andre.r.flip@gmail.com"
         }
     ],
     "require": {
         "php": ">=5.3.0"
     },
     "autoload": {
-        "files": ["IFrameYou.php"]
+        "psr-0": {
+            "MASNathan\\IFrameYou\\": "src/"
+        }
     }
 }
