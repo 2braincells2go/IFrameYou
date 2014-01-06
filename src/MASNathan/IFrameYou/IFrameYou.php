@@ -102,7 +102,11 @@ class IFrameYou
 	 */
 	public function setProperties($domain, array $properties)
 	{
-		if (isset($this->templates[$domain])) {
+		if ($domain == '*') {
+			foreach ($this->templates as &$configs) {
+				$configs['properties'] = $properties;
+			}
+		} elseif (isset($this->templates[$domain])) {
 			$this->templates[$domain]['properties'] = $properties;
 		}
 
