@@ -6,9 +6,9 @@ namespace MASNathan\IFrameYou;
  * This class can help you with the iframes, can handle the youtube video player, vimeo, and basic iframes includes
  * 
  * @package    IFrameYou
- * @author    André Filipe <andre.r.flip@gmail.com>
- * @link    https://github.com/ReiDuKuduro/IFrameYou Github Repo
- * @link    https://packagist.org/packages/masnathan/iframeyou Packagist
+ * @author     André Filipe <andre.r.flip@gmail.com>
+ * @link       https://github.com/ReiDuKuduro/IFrameYou Github Repo
+ * @link       https://packagist.org/packages/masnathan/iframeyou Packagist
  * @license    MIT
  * @version    2.0
  */
@@ -50,15 +50,15 @@ class IFrameYou
         }
 
         //Default Templates
-        $this->addTemplate('youtube',         '//www.youtube.com/embed/{query:v}', $properties);
-        $this->addTemplate('vimeo',         '//player.vimeo.com/video/{path:0}', $properties);
-        $this->addTemplate('dailymotion',     '//www.dailymotion.com/embed/video/{path:1}', $properties);
-        $this->addTemplate('ted',             '//embed.ted.com/{path}', $properties);
-        $this->addTemplate('break',         '//www.break.com/embed/{query:id}', $properties);
-        $this->addTemplate('gamespot',         '//www.gamespot.com/videoembed/{query:id}', $properties);
-        $this->addTemplate('twitch',         '//www.twitch.tv/widgets/live_embed_player.swf?channel={path:0}', $properties);
-        $this->addTemplate('vine',             '//vine.co/v/{path:1}/embed/simple', $properties);
-        $this->addTemplate('other',         $url, $properties);
+        $this->addTemplate('youtube',     '//www.youtube.com/embed/{query:v}', $properties);
+        $this->addTemplate('vimeo',       '//player.vimeo.com/video/{path:0}', $properties);
+        $this->addTemplate('dailymotion', '//www.dailymotion.com/embed/video/{path:1}', $properties);
+        $this->addTemplate('ted',         '//embed.ted.com/{path}', $properties);
+        $this->addTemplate('break',       '//www.break.com/embed/{query:id}', $properties);
+        $this->addTemplate('gamespot',    '//www.gamespot.com/videoembed/{query:id}', $properties);
+        $this->addTemplate('twitch',      '//www.twitch.tv/widgets/live_embed_player.swf?channel={path:0}', $properties);
+        $this->addTemplate('vine',        '//vine.co/v/{path:1}/embed/simple', $properties);
+        $this->addTemplate('other',       $url, $properties);
 
         //Exceptions
         switch ($this->getDomain()) {
@@ -76,6 +76,20 @@ class IFrameYou
     }
 
     /**
+     * This is a magic function, you probably now what it does
+     * @return string
+     */
+    public function __toString()
+    {
+        $myCostumTemplate = $this->templates[$this->getDomain()];
+
+        $url    = $this->parseUrlTemplate($myCostumTemplate['url'], $myCostumTemplate['parameters']);
+        $iframe = $this->parseHtmlTemplate($url, $myCostumTemplate['properties']);
+
+        return $iframe;
+    }
+
+    /**
      * Allows you to add a template for any kind of iframe
      * @param string $domain
      * @param string $template
@@ -83,7 +97,7 @@ class IFrameYou
      * @param string $parameter
      * @return IframeYou
      */
-    public function addTemplate($domain, $template, array $properties = array(), array $parameters = array())
+    protected function addTemplate($domain, $template, array $properties = array(), array $parameters = array())
     {
         $this->templates[$domain] = array(
                 'url'        => $template,
@@ -100,7 +114,7 @@ class IFrameYou
      * @param array $properties
      * @return IframeYou
      */
-    public function setProperties($domain, array $properties)
+    protected function setProperties($domain, array $properties)
     {
         if ($domain == '*') {
             foreach ($this->templates as &$configs) {
@@ -119,27 +133,13 @@ class IFrameYou
      * @param array $parameters
      * @return IframeYou
      */
-    public function setParameters($domain, array $parameters)
+    protected function setParameters($domain, array $parameters)
     {
         if (isset($this->templates[$domain])) {
             $this->templates[$domain]['parameters'] = $parameters;
         }
 
         return $this;
-    }
-
-    /**
-     * This is a magic function, you probably now what it does
-     * @return string
-     */
-    public function __toString()
-    {
-        $myCostumTemplate = $this->templates[$this->getDomain()];
-
-        $url    = $this->parseUrlTemplate($myCostumTemplate['url'], $myCostumTemplate['parameters']);
-        $iframe = $this->parseHtmlTemplate($url, $myCostumTemplate['properties']);
-
-        return $iframe;
     }
 
     /**
